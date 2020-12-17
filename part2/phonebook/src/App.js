@@ -57,6 +57,7 @@ const App = () => {
         const person = persons.find(person => person.name === newName)
         const changedPerson = {...person, number: newNumber}
         noteService.update(changedPerson)
+        .then()
       }
     } else {
       const name = {
@@ -86,7 +87,7 @@ const App = () => {
         console.log(response)
       })
       .catch(error => {
-        setFailedMessage('Information of ' + person.name + 'has already been removed from server')
+        setFailedMessage('Information of ' + person.name + ' has already been removed from server')
         setTimeout(() => {
         setFailedMessage(null)
         }, 3000)
