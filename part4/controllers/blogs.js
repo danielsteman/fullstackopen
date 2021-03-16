@@ -43,7 +43,6 @@ blogRouter.post('/', async (request, response, next) => {
   } catch (exception) {
     next(exception)
     }
-
 })
 
 blogRouter.delete('/:id', async (request, response, next) => {
@@ -69,9 +68,7 @@ blogRouter.put('/:id', async (request, response, next) => {
 
   const content = request.body
   const id = request.params.id
-  const likes = content.likes
   const newBlog = {...content}
-  newBlog.likes = likes
 
   try {
     const result = await Blog.findByIdAndUpdate(id, newBlog)
